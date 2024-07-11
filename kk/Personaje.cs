@@ -1,4 +1,4 @@
-﻿namespace kk
+﻿namespace BackEndJuego
 {
     public class Personaje
     {

@@ -4,21 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace kk
+namespace BackEndJuego
 {
     public class Menu
     {
-        public string[,] menuPelea = new string[4, 2];
-        public string[] pausa = new string[3];
+        public string[,] menuPelea;
+        public string[] pausa = new string[4];
         public int filaActualM = 0;
         public int columnaActualM = 0;
 
+        public Personaje personaje;
+        public Habilidades habilidades;
+
         public Menu() 
         {
-            menuPelea[0, 0] = "Atacar";
-            menuPelea[0, 1] = "Inventario";
-            menuPelea[1, 0] = "Habilidades";
-            menuPelea[1, 1] = "Huir";
+            menuPelea = new string[,]
+            {
+
+                { "Atacar" , "Inventario" },
+                { "Habilidades" , "Huir" }
+            };
 
             pausa[0] = "Personaje";
             pausa[1] = "Inventario";
@@ -28,7 +33,7 @@ namespace kk
             
         }
         
-        public void mostrarMenu(string[,] menuPelea)
+        public void mostrarMenu()
         {
             int filas = menuPelea.GetLength(0);
             int columnas = menuPelea.GetLength(1);
@@ -43,15 +48,17 @@ namespace kk
                     {
                         if (i == filaActualM && j == columnaActualM)
                         {
-                            Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine($">{menuPelea[i, i]}");
+                            Console.ForegroundColor = ConsoleColor.Cyan;
+                            Console.Write($">{menuPelea[i,j]}");
                             Console.ResetColor();
                         }
                         else
                         {
-                            Console.WriteLine($"{menuPelea}");
+                            Console.Write($"{menuPelea[i, j]}");
                         }
+                        Console.Write("          ");
                     }
+                    Console.WriteLine();
                 }
 
                 tecla = Console.ReadKey(true);

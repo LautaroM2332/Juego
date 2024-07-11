@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace kk
+namespace BackEndJuego
 {
     public class Arma
     {
@@ -41,7 +41,7 @@ namespace kk
         public Lanza() 
         {
             nombre = "Lanza";
-            dano = 15;
+            danoA = 15;
             descripcion = "Lanza encontrada en el cadaver de un enemigo.... parece muy filosa..";
             calidadArma = 'B';
         }
